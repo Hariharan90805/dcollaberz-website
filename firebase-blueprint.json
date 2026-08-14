@@ -1,0 +1,108 @@
+{
+  "entities": {
+    "Lead": {
+      "title": "Lead",
+      "description": "Strategy session inquiries and client consultation requests",
+      "type": "object",
+      "properties": {
+        "clientName": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "businessName": { "type": "string" },
+        "category": { "type": "string" },
+        "packageInterest": { "type": "string" },
+        "monthlyBudget": { "type": "string" },
+        "notes": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["clientName", "phone", "businessName"]
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "description": "Online payment subscriptions and package orders",
+      "type": "object",
+      "properties": {
+        "orderId": { "type": "string" },
+        "tierId": { "type": "string" },
+        "tierName": { "type": "string" },
+        "billingCycle": { "type": "string" },
+        "amount": { "type": "number" },
+        "customerName": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "businessName": { "type": "string" },
+        "paymentMethod": { "type": "string" },
+        "paymentStatus": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["orderId", "tierId", "amount", "customerName", "phone"]
+    },
+    "Visitor": {
+      "title": "Visitor",
+      "description": "Real-time visitor tracking and regional telemetry",
+      "type": "object",
+      "properties": {
+        "city": { "type": "string" },
+        "device": { "type": "string" },
+        "referrer": { "type": "string" },
+        "page": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["city", "timestamp"]
+    },
+    "Review": {
+      "title": "Review",
+      "description": "Client testimonials and verified feedback",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "company": { "type": "string" },
+        "category": { "type": "string" },
+        "location": { "type": "string" },
+        "rating": { "type": "number" },
+        "comment": { "type": "string" },
+        "result": { "type": "string" },
+        "verified": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["name", "company", "comment", "rating"]
+    },
+    "Notification": {
+      "title": "Notification",
+      "description": "Real-time event broadcast dispatcher log",
+      "type": "object",
+      "properties": {
+        "type": { "type": "string" },
+        "title": { "type": "string" },
+        "details": { "type": "string" },
+        "recipientEmail": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["type", "title", "details", "recipientEmail"]
+    }
+  },
+  "firestore": {
+    "leads": {
+      "entity": "Lead",
+      "description": "Collection of incoming consultation leads and strategy inquiries"
+    },
+    "transactions": {
+      "entity": "Transaction",
+      "description": "Collection of payment orders and subscriptions"
+    },
+    "visitors": {
+      "entity": "Visitor",
+      "description": "Collection of live visitor arrivals"
+    },
+    "reviews": {
+      "entity": "Review",
+      "description": "Collection of client testimonials"
+    },
+    "notifications": {
+      "entity": "Notification",
+      "description": "Collection of notification logs dispatched to admin"
+    }
+  }
+}
